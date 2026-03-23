@@ -1,39 +1,60 @@
-# FODMAP / Çölyak Diyet Takip Uygulamasi
+# Beslenme Pusulası
 
-Bu proje, yeni baslayanlar icin hazirlanmis cok basit bir Vite + Node.js ornegidir.
+Beslenme Pusulası, IBS ve hassas sindirim süreçleri için geliştirilen modern bir tek sayfa web uygulamasıdır.  
+Kullanıcılar besinlerin farklı diyet türlerine göre uygunluğunu hızlıca sorgulayabilir ve günlük semptom takibi yapabilir.
 
-Ozellikler:
-- Besin adina gore arama (guvenli / dikkatli / riskli)
-- Gunluk stres (1-10), sis (1-10) ve yenilen besin kaydi
-- Verilerin `server/logs.json` dosyasina yazilmasi (veritabani yok)
+## Canlı Özellikler
+
+- 400+ besin içeren yerel veri tabanı ile hızlı arama
+- 4 diyet türü: Low FODMAP, Glutensiz, Laktozsuz, Vegan
+- Sonuç kartlarında `Güvenli / Dikkat / Riskli` durum göstergesi
+- Günlük takip: stres, şişkinlik, ağrı, not ve besin kaydı
+- Haftalık mini trend grafiği
+- Olası tetikleyici analizi
+- Excel uyumlu CSV dışa aktarma
+
+## Teknoloji Yığını
+
+- Vite
+- HTML5
+- CSS3 (Vanilla)
+- JavaScript (ES6+)
+- localStorage
 
 ## Kurulum
-
-1) Node.js kurulu degilse: [https://nodejs.org](https://nodejs.org) adresinden LTS surumu kur.
-2) Proje klasorunde:
 
 ```bash
 npm install
 ```
 
-## Calistirma
+## Geliştirme Ortamında Çalıştırma
 
-Iki terminal ac:
-
-Terminal 1:
-```bash
-npm run server
-```
-
-Terminal 2:
 ```bash
 npm run dev
 ```
 
-Tarayicida `http://localhost:5173` ac.
+Uygulama varsayılan olarak `http://localhost:5173` adresinde açılır.
 
-## Notlar
+## Production Build
 
-- Bu bir ogrenme projesidir.
-- Tibbi tavsiye yerine gecmez.
-- Besin listesi `server/data.js` icinde kolayca guncellenebilir.
+```bash
+npm run build
+```
+
+Build çıktısı `dist` klasörüne üretilir.
+
+## Dağıtım Notu (Cloudflare / Static Hosting)
+
+`vite.config.js` içinde `base: "./"` ayarı kullanıldığı için proje statik ortamlarda göreli yol ile sorunsuz çalışır.
+
+## Yol Haritası (Örnek)
+
+- [ ] Besin detay penceresi (porsiyon bazlı notlar)
+- [ ] Koyu/açık tema değiştirici
+- [ ] Tek tek kayıt silme
+- [ ] Test kapsamı (unit + e2e)
+
+## Uyarı
+
+Bu proje bir **karar destek prototipidir**, tıbbi tanı aracı değildir.  
+Sürekli veya şiddetli semptomlarda lütfen doktora ve diyetisyene danışın.

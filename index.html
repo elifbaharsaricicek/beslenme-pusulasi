@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beslenme Pusulası</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="hero">
+        <span class="hero-tag">Beslenme Pusulası</span>
+        <h1>Beslenme Pusulası</h1>
+        <p>Besin uygunluk sorgusu ve günlük semptom takibi</p>
+      </header>
+
+      <section class="medical-banner">
+        <strong>Sağlık Notu:</strong> Bu uygulama tanı koymaz. Şiddetli, sık veya artan semptomlarda lütfen
+        gastroenteroloji uzmanı ve diyetisyene danışın.
+      </section>
+
+      <main>
+        <section class="card">
+          <div class="card-title-row">
+            <h2>Besin Kontrolü</h2>
+            <span id="foodCountBadge" class="pill">Toplam besin: -</span>
+          </div>
+          <p class="helper-text">Örn: sarımsak, süt, elma</p>
+          <div class="search-grid">
+            <input id="foodQuery" type="text" placeholder="Besin adı yaz..." />
+            <select id="dietType" aria-label="Diyet tipi seç">
+              <option value="fodmap">Low FODMAP</option>
+              <option value="glutenFree">Glutensiz</option>
+              <option value="lactoseFree">Laktozsuz</option>
+              <option value="vegan">Vegan</option>
+            </select>
+            <button id="searchBtn" class="primary-btn">Sorgula</button>
+          </div>
+          <div id="resultContainer"></div>
+        </section>
+
+        <section class="card">
+          <h2>IBS & Stres Günlüğü</h2>
+          <form id="logForm">
+            <label>
+              Tarih
+              <input id="entryDate" name="entryDate" type="date" required />
+            </label>
+            <label>
+              Saat
+              <input id="entryTime" name="entryTime" type="time" required />
+            </label>
+            <label>
+              Stres Seviyesi: <strong id="stressValue">3</strong>
+              <input id="stress" name="stress" type="range" min="1" max="5" value="3" />
+            </label>
+            <label>
+              Şişkinlik: <strong id="bloatingValue">3</strong>
+              <input id="bloating" name="bloating" type="range" min="1" max="5" value="3" />
+            </label>
+            <label>
+              Ağrı: <strong id="painValue">3</strong>
+              <input id="pain" name="pain" type="range" min="1" max="5" value="3" />
+            </label>
+            <label>
+              Notunuz (Opsiyonel)
+              <textarea id="note" name="note" rows="3" placeholder="Bugün nasıl hissettiniz?"></textarea>
+            </label>
+            <label>
+              Bugün Yedikleriniz (virgülle ayırın)
+              <input id="foodsEaten" name="foodsEaten" type="text" placeholder="Örn: elma, yoğurt, makarna" />
+            </label>
+            <div class="action-row">
+              <button type="submit" class="primary-btn">Kaydet</button>
+              <button type="button" id="exportBtn">CSV İndir</button>
+              <button type="button" id="clearBtn">Tümünü Sil</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="card">
+          <h2>Haftalık Trend (Son 7 Kayıt)</h2>
+          <div id="trendChart" class="chart-wrap"></div>
+        </section>
+
+        <section class="card">
+          <h2>Tetikleyici Analizi</h2>
+          <div id="triggerInsights" class="insight-list"></div>
+        </section>
+
+        <section class="card">
+          <h2>Kayıtlarım</h2>
+          <div id="logsGrid"></div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
